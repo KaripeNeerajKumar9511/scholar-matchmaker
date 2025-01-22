@@ -5,20 +5,20 @@ import { Search, SlidersHorizontal } from "lucide-react";
 
 export const TutorFilters = () => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm mb-8">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md mb-8">
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1">
           <div className="relative">
             <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
             <Input
               placeholder="Search tutors..."
-              className="pl-10"
+              className="pl-10 bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600"
             />
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-wrap md:flex-nowrap">
           <Select defaultValue="all">
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[180px] bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600">
               <SelectValue placeholder="Subject" />
             </SelectTrigger>
             <SelectContent>
@@ -29,7 +29,7 @@ export const TutorFilters = () => {
             </SelectContent>
           </Select>
           <Select defaultValue="all">
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[180px] bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600">
               <SelectValue placeholder="Location" />
             </SelectTrigger>
             <SelectContent>
@@ -39,7 +39,7 @@ export const TutorFilters = () => {
               <SelectItem value="bangalore">Bangalore</SelectItem>
             </SelectContent>
           </Select>
-          <Button variant="outline" size="icon">
+          <Button variant="outline" size="icon" className="dark:border-gray-600 dark:hover:bg-gray-700">
             <SlidersHorizontal className="h-4 w-4" />
           </Button>
         </div>

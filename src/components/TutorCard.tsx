@@ -14,7 +14,7 @@ interface TutorCardProps {
 
 export const TutorCard = ({ name, subjects, location, rating, experience, imageUrl }: TutorCardProps) => {
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-lg animate-fade-in">
+    <Card className="overflow-hidden transition-all hover:shadow-lg animate-fade-in bg-white dark:bg-gray-800 border-0 shadow-md">
       <CardHeader className="relative p-0">
         <img src={imageUrl} alt={name} className="w-full h-48 object-cover" />
         <div className="absolute top-2 right-2">
@@ -24,26 +24,26 @@ export const TutorCard = ({ name, subjects, location, rating, experience, imageU
           </Badge>
         </div>
       </CardHeader>
-      <CardContent className="p-4">
-        <CardTitle className="text-xl mb-2">{name}</CardTitle>
+      <CardContent className="p-6">
+        <CardTitle className="text-xl mb-2 dark:text-white">{name}</CardTitle>
         <CardDescription className="mb-4">
-          <div className="flex items-center text-gray-600 mb-2">
+          <div className="flex items-center text-gray-600 dark:text-gray-300 mb-2">
             <BookOpen className="w-4 h-4 mr-2" />
             {experience}
           </div>
-          <div className="flex items-center text-gray-600">
+          <div className="flex items-center text-gray-600 dark:text-gray-300">
             <MapPin className="w-4 h-4 mr-2" />
             {location}
           </div>
         </CardDescription>
         <div className="flex flex-wrap gap-2 mb-4">
           {subjects.map((subject) => (
-            <Badge key={subject} variant="secondary" className="bg-secondary/10 text-secondary">
+            <Badge key={subject} variant="secondary" className="bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary-foreground">
               {subject}
             </Badge>
           ))}
         </div>
-        <Button className="w-full bg-primary hover:bg-primary/90">
+        <Button className="w-full bg-primary hover:bg-primary/90 dark:bg-primary dark:hover:bg-primary/90">
           Contact Tutor
         </Button>
       </CardContent>
