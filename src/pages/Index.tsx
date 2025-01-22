@@ -5,7 +5,7 @@ import { TutorFilters } from "@/components/TutorFilters";
 const tutors = [
   {
     name: "Dr. Priya Sharma",
-    subjects: ["Mathematics", "Physics"],
+    subjects: ["Mathematics", "Physics", "Advanced Calculus"],
     location: "Delhi",
     rating: 4.8,
     experience: "8 years experience",
@@ -13,7 +13,7 @@ const tutors = [
   },
   {
     name: "Rahul Verma",
-    subjects: ["Chemistry", "Biology"],
+    subjects: ["Chemistry", "Biology", "Organic Chemistry"],
     location: "Mumbai",
     rating: 4.9,
     experience: "6 years experience",
@@ -21,11 +21,35 @@ const tutors = [
   },
   {
     name: "Anjali Desai",
-    subjects: ["English", "Literature"],
+    subjects: ["English", "Literature", "Creative Writing"],
     location: "Bangalore",
     rating: 4.7,
     experience: "5 years experience",
     imageUrl: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80&w=400",
+  },
+  {
+    name: "Dr. Rajesh Kumar",
+    subjects: ["Computer Science", "Programming", "Data Structures"],
+    location: "Hyderabad",
+    rating: 4.9,
+    experience: "10 years experience",
+    imageUrl: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400",
+  },
+  {
+    name: "Meera Patel",
+    subjects: ["History", "Social Studies", "Geography"],
+    location: "Pune",
+    rating: 4.6,
+    experience: "4 years experience",
+    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
+  },
+  {
+    name: "Arjun Singh",
+    subjects: ["Physics", "Mathematics", "Engineering"],
+    location: "Chennai",
+    rating: 4.8,
+    experience: "7 years experience",
+    imageUrl: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=80&w=400",
   },
 ];
 
