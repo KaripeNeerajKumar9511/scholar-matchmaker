@@ -1,16 +1,27 @@
 import { useState } from "react";
 import { TutorRegistrationForm } from "@/components/TutorRegistrationForm";
 import { StudentRegistrationForm } from "@/components/StudentRegistrationForm";
+import { LoginForm } from "@/components/LoginForm";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
+type ViewType = "selection" | "login" | "register";
+
 export default function Index() {
   const [userType, setUserType] = useState<"tutor" | "student" | null>(null);
+  const [view, setView] = useState<ViewType>("selection");
+
+  const handleBackClick = () => {
+    if (view === "register" || view === "login") {
+      setView("selection");
+      setUserType(null);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10">
       <div className="container mx-auto py-12 px-4">
-        {!userType ? (
+        {view === "selection" ? (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -22,7 +33,7 @@ export default function Index() {
                 GRADTUTOR
               </h1>
               <p className="text-xl text-muted-foreground">
-                Who Are You Today?
+                Welcome to Your Learning Journey
               </p>
             </div>
 
@@ -32,10 +43,13 @@ export default function Index() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Button
-                  onClick={() => setUserType("tutor")}
+                  onClick={() => {
+                    setUserType("tutor");
+                    setView("register");
+                  }}
                   className="w-full text-lg py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300"
                 >
-                  🎓 Tutor/Graduate
+                  🎓 Register as Tutor/Graduate
                 </Button>
               </motion.div>
 
@@ -44,10 +58,37 @@ export default function Index() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Button
-                  onClick={() => setUserType("student")}
+                  onClick={() => {
+                    setUserType("student");
+                    setView("register");
+                  }}
                   className="w-full text-lg py-6 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 transition-all duration-300"
                 >
-                  👧 Student/Parent
+                  👧 Register as Student/Parent
+                </Button>
+              </motion.div>
+
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-2 text-muted-foreground">
+                    Or
+                  </span>
+                </div>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  onClick={() => setView("login")}
+                  variant="outline"
+                  className="w-full text-lg py-6"
+                >
+                  🔑 Sign In to Your Account
                 </Button>
               </motion.div>
             </div>
@@ -63,13 +104,17 @@ export default function Index() {
             transition={{ duration: 0.3 }}
           >
             <Button
-              onClick={() => setUserType(null)}
+              onClick={handleBackClick}
               variant="ghost"
               className="mb-4 hover:bg-background/50"
             >
               ← Back to selection
             </Button>
-            {userType === "tutor" ? <TutorRegistrationForm /> : <StudentRegistrationForm />}
+            {view === "login" ? (
+              <LoginForm />
+            ) : (
+              userType === "tutor" ? <TutorRegistrationForm /> : <StudentRegistrationForm />
+            )}
           </motion.div>
         )}
       </div>
